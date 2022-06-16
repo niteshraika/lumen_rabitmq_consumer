@@ -24,6 +24,7 @@ $app = new Laravel\Lumen\Application(
 );
 
 $app->withFacades();
+class_alias(\Illuminate\Support\Facades\App::class, 'App');
 
 $app->withEloquent();
 
@@ -60,6 +61,7 @@ $app->singleton(
 */
 
 $app->configure('app');
+$app->configure('amqp');
 
 /*
 |--------------------------------------------------------------------------
@@ -95,6 +97,7 @@ $app->configure('app');
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
+$app->register(KamiOrz\Amqp\LumenServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
